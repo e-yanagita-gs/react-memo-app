@@ -9,15 +9,25 @@ function App() {
     return storedMemos ? JSON.parse(storedMemos) : [];
   });
 
-  const [selectedMemoId, setSelectedMemoId] = useState(null); // State の名前も変更
-
   useEffect(() => {
     localStorage.setItem("memos", JSON.stringify(memos));
   }, [memos]);
 
-  const handleMemoClick = (id) => {
+  const [selectedMemoId, setSelectedMemoId] = useState(null);
+  const [newMemo, setNewMemo] = useState("");
+
+  function addMemo() {
+    const newMemo = {
+      id: self.crypto.randomUUID(),
+      content: "新規メモ",
+    };
+    setMemos([...memos, newMemo]);
+    setSelectedMemoId(newMemo.id);
+  }
+
+  function handleMemoClick(id) {
     setSelectedMemoId(id);
-  };
+  }
 
   return (
     <div>
@@ -26,6 +36,7 @@ function App() {
         memos={memos}
         selectedMemoId={selectedMemoId}
         onMemoClick={handleMemoClick}
+        addMemo={addMemo}
       />
     </div>
   );
