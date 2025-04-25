@@ -1,17 +1,37 @@
-import React from "react";
+import { useState, useEffect } from "react";
 
-function MemoDetail({ memo }) {
+function MemoDetail({ memo, updateMemo, deleteMemo }) {
+  const [content, setContent] = useState("");
+
+  useEffect(() => {
+    if (memo) {
+      setContent(memo.content);
+    } else {
+      setContent("");
+    }
+  }, [memo]);
+
   if (!memo) {
     return <div>メモを選択してください</div>;
   }
 
   return (
     <div>
-      <textarea
-        value={memo.content}
-        readOnly
-        //style={{ width: "100%", height: "200px" }}
-      />
+      <textarea value={content} onChange={(e) => setContent(e.target.value)} />
+      <button
+        onClick={() => {
+          updateMemo(memo.id, content);
+        }}
+      >
+        更新
+      </button>
+      <button
+        onClick={() => {
+          deleteMemo(memo.id);
+        }}
+      >
+        削除
+      </button>
     </div>
   );
 }

@@ -1,4 +1,3 @@
-// App.jsx
 import { useEffect, useState } from "react";
 import "./App.css";
 import MemoContainer from "./MemoContainer.jsx";
@@ -14,7 +13,10 @@ function App() {
   }, [memos]);
 
   const [selectedMemoId, setSelectedMemoId] = useState(null);
-  const [newMemo, setNewMemo] = useState("");
+
+  function handleMemoClick(id) {
+    setSelectedMemoId(id);
+  }
 
   function addMemo() {
     const newMemo = {
@@ -25,8 +27,17 @@ function App() {
     setSelectedMemoId(newMemo.id);
   }
 
-  function handleMemoClick(id) {
-    setSelectedMemoId(id);
+  function updateMemo(id, content) {
+    const updatedMemos = memos.map((memo) =>
+      memo.id === id ? { ...memo, content } : memo
+    );
+    setMemos(updatedMemos);
+  }
+
+  function deleteMemo(id) {
+    const deleteMemo = memos.filter((memo) => memo.id !== id);
+    setMemos(deleteMemo);
+    setSelectedMemoId(null);
   }
 
   return (
@@ -37,6 +48,8 @@ function App() {
         selectedMemoId={selectedMemoId}
         onMemoClick={handleMemoClick}
         addMemo={addMemo}
+        updateMemo={updateMemo}
+        deleteMemo={deleteMemo}
       />
     </div>
   );
