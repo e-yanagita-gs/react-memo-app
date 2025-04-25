@@ -17,8 +17,8 @@ function MemoContainer({
     <div className={styles.container}>
       <div className={styles.memoList}>
         <h2>メモ一覧</h2>
-        <button onClick={addMemo}>+</button>
         <MemoList memos={memos} onMemoClick={onMemoClick} />
+        <button onClick={addMemo}>+</button>
       </div>
       <div className={styles.memoDetail}>
         <h2>メモ詳細</h2>

@@ -18,20 +18,22 @@ function MemoDetail({ memo, updateMemo, deleteMemo }) {
   return (
     <div>
       <textarea value={content} onChange={(e) => setContent(e.target.value)} />
-      <button
-        onClick={() => {
-          updateMemo(memo.id, content);
-        }}
-      >
-        更新
-      </button>
-      <button
-        onClick={() => {
-          deleteMemo(memo.id);
-        }}
-      >
-        削除
-      </button>
+      <div style={{ textAlign: "center" }}>
+        <button
+          onClick={() => {
+            updateMemo(memo.id, content);
+          }}
+        >
+          更新
+        </button>
+        <button
+          onClick={() => {
+            deleteMemo(memo.id);
+          }}
+        >
+          削除
+        </button>
+      </div>
     </div>
   );
 }
