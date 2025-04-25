@@ -11,12 +11,9 @@ function MemoDetail({ memo, updateMemo, deleteMemo }) {
     }
   }, [memo]);
 
-  if (!memo) {
-    return <div>メモを選択してください</div>;
-  }
-
   return (
     <div>
+      <h2>メモ詳細</h2>
       <textarea value={content} onChange={(e) => setContent(e.target.value)} />
       <div style={{ textAlign: "center" }}>
         <button

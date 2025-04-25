@@ -21,12 +21,13 @@ function MemoContainer({
         <button onClick={addMemo}>+</button>
       </div>
       <div className={styles.memoDetail}>
-        <h2>メモ詳細</h2>
-        <MemoDetail
-          memo={selectedMemoObject}
-          updateMemo={updateMemo}
-          deleteMemo={deleteMemo}
-        />
+        {selectedMemoId && (
+          <MemoDetail
+            memo={selectedMemoObject}
+            updateMemo={updateMemo}
+            deleteMemo={deleteMemo}
+          />
+        )}
       </div>
     </div>
   );
