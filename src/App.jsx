@@ -29,7 +29,7 @@ function App() {
 
   function updateMemo(id, content) {
     const updatedMemos = memos.map((memo) =>
-      memo.id === id ? { ...memo, content } : memo
+      memo.id === id ? { ...memo, content } : memo,
     );
     setMemos(updatedMemos);
   }
