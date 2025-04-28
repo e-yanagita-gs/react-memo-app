@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import MemoContainer from "./MemoContainer.jsx";
+import LoginAuthProvider from "./LoginAuthProvider.jsx";
+import LoginButton from "./LoginButton.jsx";
 
 function App() {
   const [memos, setMemos] = useState(() => {
@@ -41,8 +43,11 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>メモアプリ</h1>
+    <LoginAuthProvider>
+      <div>
+        <h1>メモアプリ</h1>
+        <LoginButton />
+      </div>
       <MemoContainer
         memos={memos}
         selectedMemoId={selectedMemoId}
@@ -51,7 +56,7 @@ function App() {
         updateMemo={updateMemo}
         deleteMemo={deleteMemo}
       />
-    </div>
+    </LoginAuthProvider>
   );
 }
 

@@ -1,7 +1,9 @@
 import React from "react";
+import { useContext } from "react";
 import MemoList from "./MemoList.jsx";
 import MemoDetail from "./MemoDetail.jsx";
 import styles from "./MemoContainer.module.css";
+import { LoginAuthContext } from "./LoginAuthContext.jsx";
 
 function MemoContainer({
   memos,
@@ -11,6 +13,7 @@ function MemoContainer({
   updateMemo,
   deleteMemo,
 }) {
+  const { loginStatus } = useContext(LoginAuthContext);
   const selectedMemoObject = memos.find((memo) => memo.id === selectedMemoId);
 
   return (
@@ -18,16 +21,14 @@ function MemoContainer({
       <div className={styles.memoList}>
         <h2>メモ一覧</h2>
         <MemoList memos={memos} onMemoClick={onMemoClick} />
-        <button onClick={addMemo}>+</button>
+        {loginStatus && <button onClick={addMemo}>+</button>}
       </div>
       <div className={styles.memoDetail}>
-        {selectedMemoId && (
-          <MemoDetail
-            memo={selectedMemoObject}
-            updateMemo={updateMemo}
-            deleteMemo={deleteMemo}
-          />
-        )}
+        <MemoDetail
+          memo={selectedMemoObject}
+          updateMemo={updateMemo}
+          deleteMemo={deleteMemo}
+        />
       </div>
     </div>
   );
