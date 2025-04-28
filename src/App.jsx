@@ -44,7 +44,7 @@ function App() {
 
   return (
     <LoginAuthProvider>
-      <div>
+      <div className="header">
         <h1>メモアプリ</h1>
         <LoginButton />
       </div>
