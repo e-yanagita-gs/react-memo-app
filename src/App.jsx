@@ -35,8 +35,8 @@ function App() {
   }
 
   function deleteMemo(id) {
-    const deleteMemo = memos.filter((memo) => memo.id !== id);
-    setMemos(deleteMemo);
+    const updatedMemo = memos.filter((memo) => memo.id !== id);
+    setMemos(updatedMemo);
     setSelectedMemoId(null);
   }
 
