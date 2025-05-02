@@ -1,15 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function MemoDetail({ memo, updateMemo, deleteMemo }) {
-  const [content, setContent] = useState("");
-
-  useEffect(() => {
-    if (memo) {
-      setContent(memo.content);
-    } else {
-      setContent("");
-    }
-  }, [memo]);
+  const [content, setContent] = useState(memo ? memo.content : "");
 
   return (
     <div>

@@ -23,6 +23,7 @@ function MemoContainer({
       <div className={styles.memoDetail}>
         {selectedMemoId && (
           <MemoDetail
+            key={selectedMemoId}
             memo={selectedMemoObject}
             updateMemo={updateMemo}
             deleteMemo={deleteMemo}
