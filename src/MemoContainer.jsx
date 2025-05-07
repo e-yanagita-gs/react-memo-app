@@ -12,7 +12,7 @@ function MemoContainer({
   updateMemo,
   deleteMemo,
 }) {
-  const { loginStatus } = useAuth();
+  const { isLoggedIn } = useAuth();
   const selectedMemoObject = memos.find((memo) => memo.id === selectedMemoId);
 
   return (
@@ -20,7 +20,7 @@ function MemoContainer({
       <div className={styles.memoList}>
         <h2>メモ一覧</h2>
         <MemoList memos={memos} onMemoClick={onMemoClick} />
-        {loginStatus && <button onClick={addMemo}>+</button>}
+        {isLoggedIn && <button onClick={addMemo}>+</button>}
       </div>
       <div className={styles.memoDetail}>
         <MemoDetail

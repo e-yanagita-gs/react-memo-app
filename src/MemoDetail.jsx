@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "./hooks/useAuth.jsx";
 
 function MemoDetail({ memo, updateMemo, deleteMemo }) {
-  const { loginStatus } = useAuth();
+  const { isLoggedIn } = useAuth();
   const [content, setContent] = useState("");
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function MemoDetail({ memo, updateMemo, deleteMemo }) {
     <div>
       <h2>メモ詳細</h2>
       <textarea value={content} onChange={(e) => setContent(e.target.value)} />
-      {loginStatus && (
+      {isLoggedIn && (
         <div style={{ textAlign: "center" }}>
           <button
             onClick={() => {

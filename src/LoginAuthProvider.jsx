@@ -2,14 +2,14 @@ import { useState } from "react";
 import { LoginAuthContext } from "./LoginAuthContext.jsx";
 
 export function LoginAuthProvider({ children }) {
-  const [loginStatus, setLoginStatus] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  function toggleLoginStatus() {
-    setLoginStatus(!loginStatus);
+  function toggleIsLoggedIn() {
+    setIsLoggedIn(!isLoggedIn);
   }
 
   return (
-    <LoginAuthContext.Provider value={{ loginStatus, toggleLoginStatus }}>
+    <LoginAuthContext.Provider value={{ isLoggedIn, toggleIsLoggedIn }}>
       {children}
     </LoginAuthContext.Provider>
   );
