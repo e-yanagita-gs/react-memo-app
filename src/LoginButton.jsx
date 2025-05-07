@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { LoginAuthContext } from "./LoginAuthContext.jsx";
+import React from "react";
+import { useAuth } from "./hooks/useAuth.jsx";
 
 export function LoginButton() {
-  const { loginStatus, toggleLoginStatus } = useContext(LoginAuthContext);
+  const { loginStatus, toggleLoginStatus } = useAuth();
 
   return (
     <div style={{ textAlign: "right" }}>

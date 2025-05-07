@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import MemoContainer from "./MemoContainer.jsx";
-import LoginAuthProvider from "./LoginAuthProvider.jsx";
+import { LoginAuthProvider } from "./LoginAuthProvider.jsx";
 import LoginButton from "./LoginButton.jsx";
 
 function App() {

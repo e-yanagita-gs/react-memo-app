@@ -1,8 +1,8 @@
-import { useContext, useState, useEffect } from "react";
-import { LoginAuthContext } from "./LoginAuthContext.jsx";
+import { useState, useEffect } from "react";
+import { useAuth } from "./hooks/useAuth.jsx";
 
 function MemoDetail({ memo, updateMemo, deleteMemo }) {
-  const { loginStatus } = useContext(LoginAuthContext);
+  const { loginStatus } = useAuth();
   const [content, setContent] = useState("");
 
   useEffect(() => {

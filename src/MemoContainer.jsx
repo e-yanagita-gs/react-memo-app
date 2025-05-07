@@ -1,9 +1,8 @@
 import React from "react";
-import { useContext } from "react";
 import MemoList from "./MemoList.jsx";
 import MemoDetail from "./MemoDetail.jsx";
 import styles from "./MemoContainer.module.css";
-import { LoginAuthContext } from "./LoginAuthContext.jsx";
+import { useAuth } from "./hooks/useAuth.jsx";
 
 function MemoContainer({
   memos,
@@ -13,7 +12,7 @@ function MemoContainer({
   updateMemo,
   deleteMemo,
 }) {
-  const { loginStatus } = useContext(LoginAuthContext);
+  const { loginStatus } = useAuth();
   const selectedMemoObject = memos.find((memo) => memo.id === selectedMemoId);
 
   return (

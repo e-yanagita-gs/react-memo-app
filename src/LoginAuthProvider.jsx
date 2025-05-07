@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { LoginAuthContext } from "./LoginAuthContext.jsx";
 
-export default function LoginAuthProvider({ children }) {
+export function LoginAuthProvider({ children }) {
   const [loginStatus, setLoginStatus] = useState(false);
 
   function toggleLoginStatus() {
