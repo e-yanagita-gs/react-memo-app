@@ -1,0 +1,30 @@
+import { useState } from "react";
+
+function MemoDetail({ memo, updateMemo, deleteMemo }) {
+  const [content, setContent] = useState(memo ? memo.content : "");
+
+  return (
+    <div>
+      <h2>メモ詳細</h2>
+      <textarea value={content} onChange={(e) => setContent(e.target.value)} />
+      <div style={{ textAlign: "center" }}>
+        <button
+          onClick={() => {
+            updateMemo(memo.id, content);
+          }}
+        >
+          更新
+        </button>
+        <button
+          onClick={() => {
+            deleteMemo(memo.id);
+          }}
+        >
+          削除
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default MemoDetail;
