@@ -4,6 +4,12 @@ body {
   font-family: sans-serif;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 h1 {
   margin-left: 20px;
   text-align: left;
