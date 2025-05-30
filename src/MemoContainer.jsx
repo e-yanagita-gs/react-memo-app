@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MemoList from "./MemoList.jsx";
 import MemoDetail from "./MemoDetail.jsx";
 import styles from "./MemoContainer.module.css";
